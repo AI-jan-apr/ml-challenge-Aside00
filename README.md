@@ -27,7 +27,7 @@ We compared two powerful classifiers: **Random Forest** and **K-Nearest Neighbor
 
 ---
 
-## 🧪 Task 2: Noise Removal (Denoising)
+## 🛠 Task 2: Noise Removal (Denoising)
 **Goal:** Restore original "clean" images from digits corrupted by random synthetic noise.
 
 ### 📈 Experimental Results
