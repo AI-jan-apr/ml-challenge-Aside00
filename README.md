@@ -1,39 +1,63 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/xQBZeI33)
-# Machine learning Challenge
+#  Machine Learning Challenge: Denoising & Classification
 
 ---
 
-### Overview
-This project comprises two related tasks aimed at utilizing machine learning techniques to handle noise in datasets. The tasks involve generating noisy data, preprocessing it, and applying machine learning models to either classify or remove the noise effectively.
+## 📋 Overview
+This project consists of two specialized machine learning tasks: **Multi-Label Classification** and **Image Noise Removal**. The core focus is to demonstrate how different algorithms handle noisy data and complex labeling.
 
 ---
 
-### Task 1: Multi-Label Classification Using Machine Learning
-This task focuses on multi-label classification using machine learning.
+## 🛠 Task 1: Multi-Label Classification
+**Goal:** Classify MNIST digits based on multiple properties: parity (**Is_Odd**) and value (**Greater_than_5**).
 
-#### File Details
-- Use the provided notebook `Task 1.ipynb`.
+### 🚀 Implementation & Comparison
+We compared two powerful classifiers: **Random Forest** and **K-Nearest Neighbors (KNN)** using Multi-Output wrappers.
 
-#### Instructions
-1. Load the data
-2. Convert your labels y into a multi-label format, by creating two columns:
-    - Odd or Not: This column indicates whether the label is odd (True) or not (False).
-    - Greater Than 5: This column indicates whether the label is greater than 5 (True) or not (False).
-3. Implement a machine learning model of your choice to perform multi-label classification.
-4. Evaluate your model.
+| Model | F1-Score | Samples Avg | Performance |
+| :--- | :--- | :--- | :--- |
+| **KNN** | **0.98** | **0.69** | ✅ **Top Precision** |
+| **Random Forest** | 0.97 | 0.68 | Solid Baseline |
+
+<img width="691" height="470" alt="image" src="https://github.com/user-attachments/assets/cc55c2d8-da73-4837-b2e0-00b5aacc200b" />
+*[Performance Metrics: RF vs KNN]*
+
+**Key Insights:**
+* **KNN Excellence:** The KNN model achieved a near-perfect F1-score of **0.98**, showing superior capability in identifying the specific boundaries of our multi-label categories.
+* **Consistency:** Both models maintained a stable "Samples Average" (around 0.68-0.69), proving robust performance across the entire test set.
+
+---
+
+## 🧪 Task 2: Noise Removal (Denoising)
+**Goal:** Restore original "clean" images from digits corrupted by random synthetic noise.
+
+### 📈 Experimental Results
+We evaluated three approaches using **Mean Squared Error (MSE)** to measure restoration quality.
+
+| Model | Status | MSE Score | Performance |
+| :--- | :--- | :--- | :--- |
+| **Noisy Baseline** | Pre-processing | **0.0213** | Corrupted Data |
+| **Linear Regression** | Denoised | **0.0073** | ✅ **Best Performer** |
+| **KNN (k=3)** | Denoised | **0.0228** | ⚠️ Noise Increase |
+| **Random Forest** | Denoised | **0.0350** | ❌ High Error |
+
+**Key Findings:**
+* **Optimal Solution:** **Linear Regression** achieved a **65.7% reduction** in noise, proving that simple linear mapping is highly effective for MNIST pixel restoration.
+* **Analysis:** Despite KNN's success in classification (Task 1), it struggled with pixel-perfect denoising, highlighting that the "best" model depends entirely on the specific task.
 
 ---
 
-### Task 2: Noise Removal Using Machine Learning
-This task focuses on identifying and removing noise from datasets using machine learning.
+## 💻 Technical Stack
 
-#### File Details
-- Use the provided notebook `Task 2.ipynb`.
+<p align="left">
+  <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python" />
+  <img src="https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy" />
+  <img src="https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="Scikit-Learn" />
+  <img src="https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black" alt="Matplotlib" />
+</p>
 
-#### Instructions
-1. Use a random generation method to introduce noise into your dataset.
-2. Preprocess the dataset.
-3. Implement a machine learning model that suit the problem.
-4. Evaluate your model.
+- **Language:** Python 3.x
+- **Core Libraries:** `Scikit-Learn`, `NumPy`, `Matplotlib`, `Scikit-Image`
+- **Dataset:** MNIST Handwritten Digits
 
 ---
+**Prepared as part of the Machine Learning Challenge.**
